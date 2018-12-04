@@ -1,0 +1,15 @@
+<%= form_for @group do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :book_id %>
+<%= f.number_field :book_id %>
+<%= f.label :creator_id %>
+<%= f.number_field :creator_id %>
+<%= f.label :first_meeting %>
+<%= f.text_field :first_meeting, :placeholder => 'mm/dd/yyyy' %>
+<%= f.label :days %>
+<%= f.number_field :days %>
+<%= f.label :reading_amount %>
+<%= f.number_field :reading_amount %>
+<%= f.submit %>
+<% end %>

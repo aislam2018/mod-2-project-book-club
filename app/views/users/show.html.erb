@@ -1,0 +1,5 @@
+<h1>Show Page</h1>
+<%= @user.name %>
+<%= @user.user_name %>
+<%= @user.password %>
+<%= button_to "Delete #{@user.name}", @user, method: :delete  %>
