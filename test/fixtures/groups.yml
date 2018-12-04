@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  book_id: 1
+  discussion_id: 1
+  creator_id: 1
+  first_meeting: 2018-12-04 10:38:26
+  days: 1
+  reading_amount: 1
+
+two:
+  name: MyString
+  book_id: 1
+  discussion_id: 1
+  creator_id: 1
+  first_meeting: 2018-12-04 10:38:26
+  days: 1
+  reading_amount: 1
