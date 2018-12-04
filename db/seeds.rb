@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Group.destroy_all
+Book.destroy_all
+
+book1 = Book.create(title: "Anik`s Life", authors: "Anik")
+user1 = User.create(name: "anik", user_name: "aislam", password:"123" )
+
+group1 = Group.create(name: "Plato`s Book club", book: book1, creator: user1, days: 10, reading_amount: 100)
+
+puts "done"

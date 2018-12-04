@@ -1,0 +1,8 @@
+<h1>Show Page</h1>
+<%= @group.name %>
+<%= @group.book_id %>
+<%= @group.creator_id %>
+<%= @group.first_meeting %>
+<%= @group.days %>
+<%= @group.reading_amount %>
+<%= button_to "Delete #{@group.name}", @group, method: :delete  %>
