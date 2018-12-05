@@ -6,7 +6,7 @@
 <%= f.label :creator_id %>
 <%= f.number_field :creator_id %>
 <%= f.label :first_meeting %>
-<%= f.text_field :first_meeting, :placeholder => 'mm/dd/yyyy' %>
+<%= f.datetime_select :first_meeting, :ampm => true, :minute_step => 15 %>
 <%= f.label :days %>
 <%= f.number_field :days %>
 <%= f.label :reading_amount %>
