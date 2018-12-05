@@ -1,5 +1,23 @@
-<h1>Show Page</h1>
+<h1>Profile Page</h1>
 <%= @user.name %>
 <%= @user.user_name %>
 <%= @user.password %>
+
+<h3>My Created Groups:</h3>
+<ul>
+  <% @user.groups.each do |group| %>
+  <li><%= link_to group.name, group %></li>
+  <% end %>
+</ul>
+
+<h3>My Joined Groups:</h3>
+<ul>
+  <% Group.all.each do |group| %>
+  <% if group.users.include?(@user) %>
+  <li><%= link_to group.name, group %></li>
+  <% end %>
+  <% end %>
+
+</ul>
+
 <%= button_to "Delete #{@user.name}", @user, method: :delete  %>

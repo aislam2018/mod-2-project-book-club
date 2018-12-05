@@ -11,3 +11,10 @@ Page Count: <%= @book.page_count %><br>
 Categories: <%= @book.categories %><br>
 
 Average Rating: <%= @book.average_rating %><br>
+<br>
+
+<ul>
+  <% @book.groups.each do |group| %>
+  <li> <%= link_to group.name, group %>  </li>
+  <% end %>
+</ul>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def show
+    @groups = Group.all
   end
   def edit
   end
