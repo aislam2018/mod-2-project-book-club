@@ -12,7 +12,7 @@
 
 <h3>My Joined Groups:</h3>
 <ul>
-  <% Group.all.each do |group| %>
+  <% @groups.each do |group| %>
   <% if group.users.include?(@user) %>
   <li><%= link_to group.name, group %></li>
   <% end %>
