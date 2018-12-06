@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
   def show
     @groups = Group.all
+    @user = @logged_in_user
   end
   def edit
   end
@@ -12,8 +13,9 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
+      log_in!(@user)
     redirect_to @user
+    # where do redirect once logged in
   else
     flash[:errors] = @user.errors.full_messages
     redirect_to new_user_path

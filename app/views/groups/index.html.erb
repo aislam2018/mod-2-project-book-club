@@ -2,7 +2,12 @@
 
 <ul>
 <% @groups.each do |group| %>
+  <%= form_for group, method: :delete do |f| %>
   <li> <%= link_to group.name, group %> </li>
+   <% if group.creator_id == @logged_in_user.id %>
+   <%= f.submit "Delete" %>
+  <% end %>
+<% end %>
 <% end %>
 </ul>
 

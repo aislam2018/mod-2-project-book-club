@@ -1,6 +1,11 @@
 class GroupsController < ApplicationController
   before_action :find_group, only:[:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token
+
+
+ before_action :authenticate, only: [:index, :destroy, :create]
+
   def index
     @groups = Group.all
   end
@@ -21,7 +26,7 @@ class GroupsController < ApplicationController
     @group = Group.create(group_params)
 
     #update to save to current user
-    @group.creator_id = 2
+    @group.creator_id = @logged_in_user.id
     # @group.user_id = 2
     @group.save
 
@@ -29,7 +34,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @user = User.find(2)
+    @user = User.find(@logged_in_user.id)
 
     if params[:remove?] == 'y'
       if @group.users.include?(@user)
@@ -50,8 +55,15 @@ class GroupsController < ApplicationController
 
   end
   def destroy
+    flash[:errors] = []
+    if @logged_in_user.id == @group.creator_id
     @group.destroy
+
     redirect_to groups_path
+  else
+    flash[:errors].push("You are not authorized to delete this group")
+    redirect_to @group
+  end
   end
 
   private
