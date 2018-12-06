@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
         @user = User.find_by(user_name: params[:user_name])
         if @user && @user.authenticate(params[:password])
           log_in!(@user)
-          redirect_to groups_path
+          setup_show_user
+          redirect_to @logged_in_user
         else
         flash[:errors].push("Username and Password does not match")
         redirect_to new_session_path

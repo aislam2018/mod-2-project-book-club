@@ -1,20 +1,26 @@
-<h1> <%= @book.title %> </h1>
+<div class="container text-center">
 
-<%= image_tag(@book.thumbnail) %><br>
+<h1> <%= @book.title %> </h1><br><br>
 
-Author(s): <%= @book.authors %><br>
+<%= image_tag(@book.thumbnail) %><br><br>
+</div>
+<div class="container">
 
-Description: <%= @book.description %><br>
+<h4>Author(s): </h4><%= @book.authors %><br><br>
 
-Page Count: <%= @book.page_count %><br>
+<h4>Description: </h4><%= @book.description %><br><br>
 
-Categories: <%= @book.categories %><br>
+<h4>Page Count: </h4><%= @book.page_count %><br><br>
 
-Average Rating: <%= @book.average_rating %><br>
+<h4>Categories: </h4><%= @book.categories %><br><br>
+
+<h4>Average Rating: </h4><%= @book.average_rating %><br>
 <br>
 
+<h3>Here all all the book club groups for <%= @book.title %>:</h3>
 <ul>
   <% @book.groups.each do |group| %>
   <li> <%= link_to group.name, group %>  </li>
   <% end %>
 </ul>
+</div>

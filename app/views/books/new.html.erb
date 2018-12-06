@@ -1,8 +1,8 @@
+<div class="container">
 <h1>Search for books to add</h1>
 
 <%= form_for new_book_path, method: "get" do |f|%>
-<%= f.label :q, "Search by:" %>
-<%= select_tag(:search_by, options_for_select([['Title', 1], ['Author', 2], ['Subject', 3]], 1) )%>
+<%= f.label :q, "Search for Book:" %>
   <%= f.text_field :q %>
   <%= f.submit "Search" %>
 <% end  %>
@@ -14,9 +14,10 @@
   <% @raw_books.each do |raw_book| %>
     <li>
       <%= form_for @book do |f| %>
-      <%= f.button raw_book.title, name:'rawbook', value: raw_book.title %>
+      <%= f.button raw_book.title, name:'rawbook', value: raw_book.title %><br><br>
       <% end %>
     </li>
   <% end  %>
 <% end %>
 </ul>
+</div>

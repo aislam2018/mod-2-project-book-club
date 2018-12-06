@@ -1,23 +1,30 @@
-<h1>Profile Page</h1>
-<%= @user.name %>
-<%= @user.user_name %>
-<%= @user.password %>
+<div class="container text-left">
+
+
+<h1>My Profile</h1><br>
+<h3>Name: </h3><h5><%= @user.name %><br><br></h5>
+<h3>Username: </h3><h5><%= @user.user_name %><br><br></h5>
+
 
 <h3>My Created Groups:</h3>
-<ul>
+<ol>
   <% @user.groups.each do |group| %>
   <li><%= link_to group.name, group %></li>
   <% end %>
-</ul>
+</ol>
 
 <h3>My Joined Groups:</h3>
-<ul>
+<ol>
   <% @groups.each do |group| %>
   <% if group.users.include?(@user) %>
   <li><%= link_to group.name, group %></li>
   <% end %>
   <% end %>
 
-</ul>
+</<ol>
 
-<%= button_to "Delete #{@user.name}", @user, method: :delete  %>
+<br>
+<%= button_to "Delete My Account", @user, method: :delete  %><br>
+<%= button_to "Edit My Account", edit_user_path, method: :get  %>
+
+</div>

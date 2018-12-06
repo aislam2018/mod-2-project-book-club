@@ -10,7 +10,9 @@ end
 
 def setup_show_user
     if session["user_id"]
+
       @logged_in_user = User.find(session["user_id"])
+
       # setup_group_attrs
       # not sure about this path
     end
@@ -27,6 +29,12 @@ def logged_in?
 
   def authenticate
     redirect_to new_session_path unless logged_in?
+  end
+
+  def valid_url?
+    if response.status_code == 404
+      redirect_to "/pages/welcome"
+    end
   end
 
 end

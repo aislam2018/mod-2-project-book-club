@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
 
- before_action :authenticate, only: [:index, :destroy, :create]
+ before_action :authenticate, only: [:index, :new, :show, :destroy, :edit, :create]
 
   def index
     @groups = Group.all
@@ -14,7 +14,9 @@ class GroupsController < ApplicationController
     @group = Group.new
     @books = Book.all
   end
+
   def show
+  
   end
 
   def edit

@@ -1,4 +1,6 @@
-<h1>All Books</h1>
+<div class="container">
+
+<h1>All Added Books</h1>
 
 
 <ul>
@@ -7,4 +9,5 @@
 <% end  %>
 </ul>
 
-<%= link_to "add book", new_book_path %>
+<%= button_to "Add a Book!", new_book_path, method: :get %>
+</div>

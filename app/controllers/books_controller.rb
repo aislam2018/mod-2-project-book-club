@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
+
+ before_action :authenticate, only: [:index, :show, :destroy, :create]
   def index
 
     @books = Book.all

@@ -14,7 +14,7 @@
     <header>
 
       <% if @logged_in_user %>
-      <%= @logged_in_user.user_name %>
+    <h1>  Welcome back, <%= @logged_in_user.user_name %></h1>
     <% end %>
 
       <% if @errors %>
@@ -27,11 +27,19 @@
         </ul>
         <% end %>
     </header>
+<% if @logged_in_user %>
+<div class="container">
+  <div class="row">
 
-    <%= link_to "groups", groups_path %>
-    <%= link_to "profile", "/users/2" %>
-    <%= link_to "books", books_path %>
+    <%= button_to "groups", groups_path, method: :get %>
 
+    <%= button_to "profile", "/users/#{@logged_in_user.id}", method: :get  %>
+    <%= button_to "books", books_path, method: :get  %>
+    <%= button_to "log out", pages_path, method: :get   %>
+<% end %>
+
+</div>
+</div>
     <%= yield %>
   </body>
 </html>
