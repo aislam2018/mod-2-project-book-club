@@ -1,8 +1,10 @@
+<div class="w-100 p-3 " style="background-color: #eee; opacity: .7;">
 <div class="container text-center">
 
 <h1> <%= @book.title %> </h1><br><br>
-
+<% if @book.thumbnail %>
 <%= image_tag(@book.thumbnail) %><br><br>
+<% end %>
 </div>
 <div class="container">
 
@@ -23,4 +25,5 @@
   <li> <%= link_to group.name, group %>  </li>
   <% end %>
 </ul>
+</div>
 </div>
