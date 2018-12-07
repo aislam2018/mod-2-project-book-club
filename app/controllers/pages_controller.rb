@@ -18,7 +18,7 @@ def index
   session["user_id"] = nil
   if Book.all != nil && Group.all!= nil
   @books = Book.all
-  @books.sort_by{|t| t.groups.count}
+  @books = @books.sort_by{|t| t.groups.count}.reverse
   @logged_in_user = nil
   render :welcome
 end
