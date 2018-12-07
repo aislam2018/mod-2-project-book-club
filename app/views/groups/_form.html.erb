@@ -1,14 +1,14 @@
 <%= form_for @group do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :book %>
-<%= f.collection_select :book_id, @books, :id, :title %>
+<h5><%= f.label :name %>
+<%= f.text_field :name %></h5>
+<h5><%= f.label :book %>
+<%= f.collection_select :book_id, @books, :id, :title %></h5>
 
-<%= f.label :first_meeting %>
-<%= f.datetime_select :first_meeting, :ampm => true, :minute_step => 15 %>
-<%= f.label :days %>
-<%= f.number_field :days %>
-<%= f.label :reading_amount %>
-<%= f.number_field :reading_amount %>
+<h5><%= f.label :first_meeting %>
+<%= f.datetime_select :first_meeting, :ampm => true, :minute_step => 15 %></h5>
+<h5><%= f.label :days %>
+<%= f.number_field :days, min: 1 %></h5>
+<h5><%= f.label :reading_amount %>
+<%= f.number_field :reading_amount, min: 1 %>pages</h5>
 <%= f.submit %>
 <% end %>

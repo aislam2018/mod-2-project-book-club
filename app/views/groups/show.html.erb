@@ -1,24 +1,37 @@
-<div class="container text-center">
-
+<div class="w-50 p-3" style="background-color: #eee;">
+<br>
 <h1>Show Page</h1>
-<%= @group.name %>
-<%= @group.book.title %>
-<%= @group.creator.user_name %>
-<%= @group.first_meeting %>
-<%= @group.days %>
-<%= @group.reading_amount %>
-<%= button_to "Delete #{@group.name}", @group, method: :delete  %><br><br>
 
-<%= button_to "Join Group", @group, method: :patch %>
-<%= button_to "Leave Group", @group, method: :patch, params: {remove?: "y"} %>
+<div class="row">
+<div class="col left">
+<br><h5>Group Name: </h5><p><%= @group.name %></p>
+<br><h5>Book Title: </h5><p><%= @group.book.title %>
+<br><h5>Group Creator: </h5><p><%= @group.creator.user_name %>
+</div>
+<div class="col right">
+<br><h5>First Meeting Date: </h5><p><%= @group.first_meeting %>
+<br><h5>Days Between Meetings: </h5><p><%= @group.days %>
+<br><h5>Pages to Read: </h5><p><%= @group.reading_amount %><br><br>
+</div>
+</div>
+
 
 
 <% if @group.users %>
+<h5>Users in this group:</h5>
 <ul>
   <% @group.users.each do |user| %>
   <li> <%= link_to user.user_name, user %>  </li>
   <% end %>
 </ul>
 <% end %>
+
+<div class="text-center">
+  <div class="row">
+<%= button_to "Delete #{@group.name}", @group, method: :delete  %><br>
+<%= button_to "Join Group", @group, method: :patch %><br>
+<%= button_to "Leave Group", @group, method: :patch, params: {remove?: "y"} %>
+</div>
+  </div>
 
 </div>

@@ -1,8 +1,8 @@
-<div class="container">
-<h1>Search for books to add</h1>
-
+<div class="w-50 p-3" style="background-color: #eee;">
+<br><h1>Search for books to add</h1>
+<br>
 <%= form_for new_book_path, method: "get" do |f|%>
-<%= f.label :q, "Search for Book:" %>
+<%= f.label :q, "Search for Book (by title, author or subject):" %><br>
   <%= f.text_field :q %>
   <%= f.submit "Search" %>
 <% end  %>

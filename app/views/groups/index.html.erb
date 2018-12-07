@@ -1,14 +1,18 @@
-<h1>Groups</h1>
+<div class="w-50 p-3" style="background-color: #eee;">
+<br><h1>Groups:</h1>
+
 
 <ul>
 <% @groups.each do |group| %>
   <%= form_for group, method: :delete do |f| %>
   <li> <%= link_to group.name, group %> </li>
    <% if group.creator_id == @logged_in_user.id %>
-   <%= f.submit "Delete" %>
+   <br><%= f.submit "Delete" %>
   <% end %>
 <% end %>
 <% end %>
 </ul>
 
-<%= link_to "Create new group", new_group_path %>
+
+<%= button_to "Create new group", new_group_path, method: :get %>
+</div>
